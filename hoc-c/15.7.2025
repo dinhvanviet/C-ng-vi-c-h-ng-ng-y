@@ -1,0 +1,5 @@
+Tìm hiểu về hàm ,hàm đệ quy
+* Hàm :là một khối mã có tên, thực hiện một công việc cụ thể, và có thể được gọi lại nhiều lần trong chương trình.
+-Học:Khai báo hàm ,gọi ,hàm có tham số và không có tham số.
+
+*Hàm đệ quy :để giải quyết bài toán theo kiểu chia nhỏ bài toán ban đầu thành những bài toán con giống hệt nhưng đơn giản hơn.
