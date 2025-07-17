@@ -1,0 +1,9 @@
+-Tìm hiểu: mảng và chuỗi của code c
+* Mảng :
+ -Mảng 1 chiều ,mảng 2 chiều .
+ -Mảng là một tập hợp nhiều biến cùng kiểu,mỗi phần tử được truy cập qua chỉ số bắt đầu từ 0.
+ -Học được:+ Khai báo mảng,khởi tạo mảng, nhập xuất mảng.
+           + Tính tổng các phần tử,giá trị lớn nhất ,giá trị nhỏ nhất,đếm số chẵn lẻ.
+
+* Chuỗi:
+ -Khai báo chuỗi,khởi tạo ,nhập xuất chuỗi ,so sánh chuỗi. 
