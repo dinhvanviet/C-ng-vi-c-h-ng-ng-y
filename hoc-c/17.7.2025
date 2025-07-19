@@ -1,0 +1,60 @@
+Ôn tập vòng lặp for ,while,do while,if else .
+
+Demo:
+*vòng lặp for: tính tổng các ước của n.
+ #include <stdio.h>
+ #include <math.h>
+int main (){
+	int n=10;
+	int sum =0;
+	for(int i=1;i<=n;i++){
+		if (n % i == 0)
+		sum += i;
+	}
+	printf("%d",sum);
+ 
+   return (0);
+}
+
+*while ,do while: đếm số chữ số của n
+
+#include<stdio.h>
+#include<math.h>
+int main (){
+	int n;
+	int count =0;
+	do {
+        printf("Nhap so nguyen duong n= ");
+        scanf("%d", &n);
+    } while (n <= 0);
+    while (n != 0) {
+        n /= 10;     
+        count++;     
+    }
+    printf("So chu so la: %d\n", count);
+    return 0;
+}
+
+*if ,else tìm vị trí âm của n
+#include<stdio.h>
+int main(){
+     int n;
+  	int a[100];
+ 	int min =a[0];
+  	int vitri= -1;
+ 	printf("Nhap n=");
+  	scanf("%d",&n);
+ 	for (int i=0;i<n;i++){
+		scanf("%d",&a[i]);
+    } 
+ 	for (int i = 0; i < n; i++) {
+     if (a[i] < 0) {
+     if (vitri == -1 || a[i] < min) {
+         min= a[i];
+           vitri = i;
+            }
+        }
+    }
+    printf("%d",vitri);
+}
+
