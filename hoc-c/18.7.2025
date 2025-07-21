@@ -1,1 +1,88 @@
+Ôn tập : chuỗi, mảng, hàm .
 
+* Demo:chuỗi:viết chương trình in ra số lần xuất hiện của ký tự c trong xâu s.
+
+#include<stdio.h>
+#include<string.h>
+   int main(){
+       char c;
+       char s[100];
+     scanf("%c",&c);
+     scanf("%s",s);
+   int len = strlen(s);
+   int count=0;
+     for(int i=0 ;i<len;i++){
+        if( s[i]==c){
+         count ++;
+        }
+     }
+     printf("%d",count);
+     return(0);
+}
+
+* Demo:mảng: chèn phần tử trong mảng.
+
+#include<stdio.h>
+int main(){
+    int n,x,k;
+    int a[100];
+    do {
+        scanf("%d",&n);
+    }while(n<0);
+
+    for(int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    
+    do{
+        scanf("%d",&k);
+    }while(k<0 || k>n);
+
+    scanf("%d",&x);
+
+    for(int i=n;i>k;i--){
+        a[i]=a[i-1];
+    }
+
+    a[k]=x;
+    n++;
+
+    for(int i=0;i<n;i++){
+        printf("%d ",a[i]);
+    }
+
+     printf("\n");
+
+     return(0);
+}
+
+* Demo:hàm:tìm số lớn nhất trong 2 mảng
+
+include <stdio.h>
+
+int maxOfArray(int arr[], int n) {
+	int maxValue = arr[0];
+	for (int i = 0; i < n; i++) {
+		if (arr[i] > maxValue) {
+			maxValue = arr[i];
+		}
+	}
+	return maxValue;
+}
+
+int main() {
+	int n1, n2;
+	int arr1[1000], arr2[1000];
+	scanf("%d", &n1);
+	for (int i = 0; i < n1; i++) {
+		scanf("%d", &arr1[i]);
+	}
+	scanf("%d", &n2);
+	for (int i = 0; i < n2; i++) {
+		scanf("%d", &arr2[i]);
+	}
+
+	printf("%d %d", maxOfArray(arr1, n1), maxOfArray(arr2, n2));
+
+	return 0;
+}
