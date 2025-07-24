@@ -1,0 +1,57 @@
+Học tiếp ngăn xếp và hàng đợi :
+-Cấu trúc dữ iệu ngăn xếp .
+-Biến đổi dãy.
+-Cấu trúc dữ liệu hàng đợi.
+
+Demo:
+*dịch chuyển phần tử đầu tiên ra sau phần tử cuối cùng của dãy
+#include<stdio.h>
+ int main(){
+    int n,k;
+
+    scanf("%d",&n);
+
+    int queue[100];
+    for(int i=0;i<n;i++){
+        scanf("%d",&queue[i]);
+    }
+
+    scanf("%u",&k);
+
+    for(int j=0;j<k;j++){
+        int first =queue[0];
+        for(int i=0;i<n-1;i++){
+            queue[i]=queue[i+1];
+        }
+        queue[n-1]=first;
+    }
+    for(int i=0;i<n;i++){
+        printf("%d ",queue[i]);
+    }
+    return 0;
+ }
+
+ *in chuỗi đảo ngươc ra màn hình
+ #include<stdio.h>
+#include<string.h>
+#define max 1000
+int main(){
+    char str[max];
+    char stack[max];
+    int top = -1;
+
+     fgets(str,max,stdin);  //dem chu co khoan trang
+       
+    int len =strlen(str);
+    for(int i=0;i<len;i++){
+        stack[++top]=str[i];
+    }
+
+    while( top >= 0){
+        printf("%c",stack[top--]);
+
+    }
+
+    printf("\n");
+    return(0);
+}
