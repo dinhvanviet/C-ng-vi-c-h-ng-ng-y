@@ -1,0 +1,39 @@
+Làm bài tập về dữ liệu hàng đợi, màn hình hiển thị
+Demo:
+Nhập vào một số nguyên dương n, tiếp theo nhập n số nguyên lần lượt là các phần tử của queue. Cuối cùng nhập vào một số tự nhiên k.
+Một phép biến đổi sẽ dịch chuyển phần tử đầu tiên ra sau phần tử cuối cùng của dãy, hãy trả về dãy sau khi đã biến đổi k lần. 
+In tất cả các phần tử ra màn hình, sau mỗi phần tử có đúng một khoảng trắng.
+                                                     bl
+#include<stdio.h>
+int main(){
+	int n,k;
+//   nhap do dai cua queue
+    printf("Nhap so nguyen duong n = ");
+	scanf("%d",&n);
+	if(n<0){
+		printf("Ban vui long nhap lai ");
+		scanf("%d",&n);
+	}
+    
+//  khoi tao queue da nhap n
+    int queue[n];
+// nhap n so nguyen
+	for(int i=0;i<n;i++){
+ 		scanf("%d",&queue[i]);
+	}
+//nhap so lan bien doi
+	printf("Nhap so lan bien doi k= ");
+	scanf("%u",&k);
+ 
+	for(int i=k;i<n;i++){
+		printf("%d",queue[i]);
+	}
+	for(int i=0;i<k;i++){
+		printf("%d ",queue[i]);
+	}
+ 
+  return 0;
+ }
+
+
+ 
