@@ -1,0 +1,6 @@
+Họ và tìn hiểu về danh sách liên kết đơn 
+-Các thao tác chính trên đơn liên kết danh sách:
+ +Add node : Thêm nút mới vào đầu, cuối hoặc giữa danh sách.
+ +Xóa nút : Xóa nút khỏi danh sách.
+ +Duyệt danh sách : Truy cập và hiển thị dữ liệu của từng nút.
+-Học thêm phần tử và xóa phần tử
