@@ -1,0 +1,37 @@
+Học đọc ghi file :
+gồm các bước
+-tạo file (fopen)
+-ghi nội dung vao file (dùng fprintf )
+-đọc nội dung từ file(dùng fscanf)
+Sau khi đã ghi và đọc file xong ta cần đóng file (dùng fclose)
+
+demo:
+// doc so nguyen int ,so thuc double ,chuoi ki tu
+#include<stdio.h>
+#include<math.h>
+int main (){
+	FILE *f;
+	// ghi vao file
+	f = fopen("input.txt","w");
+	if(f == NULL){
+		printf("file bi loi!\n");
+	}
+	fprintf(f,"123 3.14 dvv@\n");
+	fclose(f);
+	// doc flie
+	f = fopen("input.txt","r");
+	if(f == NULL){
+		printf("file bi loi!\n");
+	}
+	
+	int n;
+	double b;
+	char s[200];
+	// doc va in ra trong file
+	fscanf(f,"%d %lf %s ",&n,&b,s);
+	printf("Data: %d %2.lf %s",n,b,s);
+	
+	fclose(f);
+	
+	return 0;
+}
