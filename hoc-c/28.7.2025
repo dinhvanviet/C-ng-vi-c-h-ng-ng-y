@@ -1,0 +1,53 @@
+Học về cấu trúc dữ liệu hàng đợi và làm bài tập về các queue,stack(là một kiểu dữ liệu hàng đợi)
+demo:
+Huyền thoại có điện thoại hiển thị tối đa k tin nhắn. Quy tắc hiển thị như sau:
+
+Not show hai tin nhắn từ cùng một SĐT.
+Nếu SĐT có tin nhắn gửi trên màn hình thì không có gì thay đổi.
+Nếu không có tin nhắn từ SĐT a:
+Nếu màn hình chưa đủ tin nhắn, hãy chèn vào cuối.
+Nếu đã đủ k tin nhắn, hãy đưa tin nhắn trên cùng ra và chèn tin nhắn mới vào cuối.
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#define max 1000
+ int queue[max];
+ int in_creen[max]={0};
+ 
+ int main(){
+ 	int n,k;
+ 	
+ 	// nhap so tin nhan
+ 	printf("Nhap so tin nhan : ");
+ 	scanf("%d",&n);
+ 	
+ 	// nhap suc chua tren man hinh
+ 	printf("suc chua tren man hinh la :");
+ 	scanf("%d",&k);
+ 	
+ 	// duyet tung tin nhan
+ 	int front=0,rear=0;
+ 	for (int i=0;i<n;i++){
+ 		int sdt;
+ 		scanf("%d",&sdt);
+ 		
+	// kiem tra suc chua tren man hinh   
+	     
+	 if(in_creen[sdt]) continue;
+	 if ( rear - front == k){
+	 	in_creen [queue[front]]=0;
+	 	front ++;
+	 }
+	// them so moi vao cuoi man hinh
+	 queue[rear ++] = sdt ;
+	 in_creen[sdt] = 1;
+    }
+    printf("Man hinh hien thi ra la :");
+	for(int i=front;i <= rear -1 ;i++ ){
+	 	printf("%d ",queue[i]);
+	}
+	 
+	 return 0;
+	}
