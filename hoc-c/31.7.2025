@@ -1,0 +1,114 @@
+Học đọc và ghi nhiều file (file text và file csv)
+Demo:
+-file text:
+
++ Ghi file:
+#include<stdio.h>
+int main(){
+	FILE *f1;
+	f1 = fopen("file4.txt","w");
+	FILE *f2;
+	f2 = fopen("file5.txt","w");
+	
+	if(f1 == NULL || f2 == NULL){
+		printf("Khong the tao file !");
+	}
+	
+	fprintf(f1,"dvv");
+	fprintf(f2,"dinhvanviet");
+	
+	fclose(f1);
+	fclose(f2);
+	
+	return 0;
+}
+
++ Đọc file:
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+	FILE *f1;
+	f1 = fopen ("file4.txt","r");
+	FILE *f2;
+	f2 = fopen ("file5.txt","r");
+	
+	if(f1 == NULL || f2 == NULL){
+		printf("file bi loi!");
+		return 1;
+	}
+	
+	char s;
+	 printf("\nNoi dung trong file bai 1 la : ");
+	 while ((s = fgetc(f1) ) != EOF){
+	 	putchar(s);
+	 }
+	
+	printf("\nNoi dung trong file bai 2  la :\n");
+	while((s = fgetc(f2)) != EOF){
+		putchar(s);
+	}
+	
+	fclose(f1);
+	fclose(f2);
+	
+	return 0;
+}
+
+-File csv:
++ Đọc và ghi:
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define MAX_LINE 1024
+int main(){
+	// tao 2 file va ghi du lieu
+	FILE *f1;
+	f1 = fopen ("data1.csv", "w");
+	FILE *f2;
+	f2 = fopen ("data2.csv", "w");
+	
+	if(f1 == NULL || f2 == NULL){
+		printf("file bi loi!");
+		return 1;
+	}
+	//ghi vao file
+	fprintf(f1,"ngay,thang,nam\n");
+	fprintf(f1,"1,2,2000\n");
+	fprintf(f1,"3,4,2001");
+	
+	fprintf(f2,"stt,ten,diem\n");
+	fprintf(f2,"1,a,1\n");
+	fprintf(f2,"2,b,10");
+	
+	fclose(f1);
+	fclose(f2);
+	
+	int n = 2;
+	char tenfile[100];
+	char line[MAX_LINE];
+	for(int i=1;i<=n;i++){
+		sprintf(tenfile,"data%d.csv",i);
+		//mo file che do doc
+		FILE *f;
+		f = fopen(tenfile,"r");
+		if(f == NULL){
+			printf("Khong mo duoc file!");
+	        return 1;          
+		}
+		printf("Noi dung file %d\n",i);
+		//doc tung dong trong file
+		while (fgets(line, sizeof(line), f)) {
+        line[strcspn(line, "\n")] = '\0';
+        //doc du lieu dau tien ngan cach bang dau ,
+        char *token = strtok(line, ",");
+        // in la luot cac gia tri cua chuoi
+        while (token != NULL) {
+            printf("%s\t", token);
+            token = strtok(NULL, ",");
+        }
+        printf("\n");
+    }
+    fclose(f);
+	}
+	return 0;
+}  
