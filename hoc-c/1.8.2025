@@ -1,1 +1,5 @@
-
+-Học cấu trúc điều hiển swtch case 
+-Học các bước để thêm node vào đầu DSLK :
+ +Cấp phát động một node mới
+ +Cho node mới lưu địa chỉ của node head (trỏ tới head)
+ +Cập nhật head thành node mới tạo 
