@@ -1,0 +1,64 @@
+Học và tìm hiểu giải thuật tìm kiếm :
+*Thuật toán tìm kiếm nhị phân :
+ -Tìm kiếm nhị phân hay Binary Search là một thuật toán tìm kiếm để tìm ra vị trí của một phần tử trong một mảng được sắp xếp.
+Trong cách tiếp cận này, phần tử luôn được tìm kiếm ở giữa một phần của mảng.
+ -Ý tưởng của thuật toán tìm kiếm nhị phân
+  +Xét đoạn mảng arr[left…right] cần tìm kiếm phần tử x. Ta so sánh x với phần tử ở vị trí giữa của mảng(mid = (left + right)/2). Nếu:
+  +Nếu phần tử arr[mid] = x. Kết luận và thoát chương trình.
+  +Nếu arr[mid] < x. Chỉ thực hiện tìm kiếm trên đoạn arr[mid+1…right].
+  +Nếu arr[mid] > x. Chỉ thực hiện tìm kiếm trên đoạn arr[left…mid-1].
+
+  demo
+  #include <stdio.h>
+int nhiphanfirst(int a[],int n,int x){
+	int l=0,r=n-1, ars =-1;
+	while(l<=r){
+		// tim chi so o giua
+		int m = (l+r)/2;
+		
+		if(a[m] == x){
+			ars = m; //da tim thay
+			r = m-1;
+		}
+		// tim chi so ben phai 
+		else if(a[m] < x){
+			l = m+1;
+		// tim chi so ben trai
+		}else{
+			r =m-1;
+		}
+	}
+	return ars;
+	}
+int main(){
+	int n,x;
+	// nhap so nguyen duong n
+	do{
+		printf("Nhap n = ");
+		scanf("%d",&n);
+	}while (n<0);
+	
+	int a[n];
+	// nhap phan tu cua a
+	printf("Nhap phan tu trong day a:\n");
+	for (int i=0;i<n;i++){
+		scanf("%d",&a[i]);
+	}
+	// Nhap tong so day con lien tiep
+	printf("Nhap x = ");
+	scanf("%d",&x);
+	
+	printf("%d\n",nhiphanfirst(a,n,x));
+	return 0;
+}
+
+*Thuật toán và tìm kiếm nội suy:
+-Tìm kiếm nhị phân sẽ chuyển đến phần tử giữa để kiểm tra, và loại bỏ các phần tử còn lại tùy thuộc vào giá trị tìm kiếm và giá trị của phần tử nằm ở giữa
+ Mặt khác, giải thuật tìm kiếm nội suy có thể đi đến các vị trí khác nhau tùy theo giá trị của khóa đang được tìm kiếm. Tại mỗi bước tìm kiếm,tìm kiếm nội
+ sẽ tính toán vùng không gian mà phần tử cần tìm có thể xuất hiện, dựa trên giá trị Low và High của không gian tìm kiếm.
+ -Các bước về cách hoạt động của giải thuật tìm kiếm nội suy:
+  +Trong một vòng lặp, ta sẽ tính giá trị của Mid bằng công thức bên trên.
+  +Nếu có sự trùng khớp, ta trả về chỉ số của phần tử và kết thúc việc tìm kiếm.
+  +Nếu phần tử nhỏ hơn arr[mid], ta sẽ tính toán vị trí thăm dò của mảng con bên trái. Nếu không, ta sẽ thực hiện quá trình tính toán tương tự trong mảng con bên phải.
+  +lặp lại cho đến khi tìm thấy kết quả phù hợp hoặc mảng con giảm xuống 0
+-công thức: Mid = low + ((x-arr[low])*(high-low)/(arr[high] – arr[low]));
