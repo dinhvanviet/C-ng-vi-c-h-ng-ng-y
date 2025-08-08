@@ -1,0 +1,69 @@
++Học và tìm hiểu về giải thuật đệ quy :
+ -giải thuật đệ quy:
+  +Phải có lời giải cho các trường hợp đơn giản nhất của bài toán. Các trường hợp này được gọi là các trường hợp cơ sở hay các trường hợp dừng của đệ quy.
+  +Hay nói một cách ngắn gọn thì giải thuật đệ quy phải có điều kiện dừng
+  +Trong các trường hợp khác, thực hiện các lời gọi đệ quy giải quyết các vấn đề con với cỡ nhỏ hơn.
+   Các lời gọi đệ quy sinh ra các lời gọi đệ quy khác và đến một lúc nào đó các lời gọi đệ quy phải dẫn đến điều kiện dừng, lúc này lời gọi đệ quy sẽ được kết thúc
+
+  -Làm bài tập:
+   +Tính lũy thừa 
+   +Tìm ước chung lớn nhất 
+   +Dãy fibonacci
+
+   demo : Tính lũy thừa
+   
+  #include<stdio.h>
+#include<math.h>
+long long pow(int a,int b){
+	if(b == 0) return 1;
+	return a * pow(a,b-1);
+}
+int main(){
+	int a,b;
+	printf("Nhap a = ");
+	scanf("%d",&a);
+	printf("Nhap b = ");
+	scanf("%d",&b);
+	
+	printf("%llu\n",pow(a,b));
+	return 0;
+}
+
+
+demo :tìm ước chung lớn nhất
+
+#include<stdio.h>
+#include<math.h>
+int uoc(int a ,int b){
+	if(b == 0) return a;
+	if( a % b == 0) return b;
+	return uoc(b,a % b);
+}
+int main(){
+	int a,b;
+	printf("Nhap a = ");
+	scanf("%d",&a);
+	printf("Nhap b = ");
+	scanf("%d",&b);
+	
+	printf("%d",uoc(a,b));
+}
+
+demo: Dãy fibonacci
+
+#include <stdio.h>
+#include <math.h>
+int timso(long long n){
+	if (n == 1) return 1;
+	return 1 + timso(n-(n+1)/2);
+}
+int main(){
+	long long n;
+	do{
+		printf("Nhap so nguyen duong n = ");
+		scanf("%llu",&n);
+	}while(n<0);
+	
+	printf("%d", timso(n));
+	return 0;
+}
